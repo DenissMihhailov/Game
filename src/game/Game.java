@@ -18,18 +18,26 @@ public class Game {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int max = 5, min =0;
+        int max = 5, min =0, attempt=1;
         Random random= new Random();
         int gameNum = random.nextInt(max - min + 1)+min;
         System.out.println("Программа задала число от 0 до 5, угадай:"); 
         Scanner scanner = new Scanner(System.in);
-        int userNum= scanner.nextInt(); 
-        if(gameNum==userNum){
-            System.out.println("Ура! Ты выйграл!");
-        
-        }else{
-            System.out.println("Ты проиграл... Задумано число:" + gameNum);
-        }
+        for(int i=0;i<10;i++){
+            int userNum= scanner.nextInt(); 
+            if(gameNum==userNum){
+                System.out.println("Ура! Ты выйграл!");
+                break;
+            }else{
+                if(attempt < 3){
+                    System.out.println("Неправильно, попробуй еще раз:");
+                }else{
+                    System.out.println("Ты проиграл... Задумано число:" + gameNum);
+                    break;
+                   
+            }
+        } 
+        attempt++;        
     }
-    
+    }
 }
