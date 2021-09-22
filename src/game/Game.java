@@ -18,13 +18,19 @@ public class Game {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("ИГРА УГАДАЙ ЧИСЛО");
+        System.out.println("--------------------------");
+        System.out.println("Напишите от какого числа игра начнет счет:");
+        int otnum= scanner.nextInt();
+        System.out.println("Напишите от какого числа игра начнет счет:");
+        int donum= scanner.nextInt();
         
-        int max = 5, min =0, attempt=1, ii=1;
+        int max = donum, min =otnum, attempt=1, ii=1;
         while(ii==1){
         Random random= new Random();
         int gameNum = random.nextInt(max - min + 1)+min;
-        System.out.println("Программа задала число от 0 до 5, угадай:"); 
-        Scanner scanner = new Scanner(System.in);
+        System.out.printf("Программа задала число от %d до %d, угадай:", otnum, donum); 
         for(int i=0;i<10;i++){
             int userNum= scanner.nextInt(); 
             if(gameNum==userNum){
